@@ -1,0 +1,44 @@
+,,Concentration (mM),,,,,,,,,
+Substrate,Sample,Protocatechuic acid,p-hydroxybenzoic acid,p-hydrozybenzaldehyde,Vanillic acid,Vanillin,Syringic acid,p-coumaric acid,Syringaldehyde,Ferulic acid,Sinapic acid
+Glucose,AL-1.lcd,0,0,0,0,0,0,0,0,0,0
+Glucose,AL-1-rep.lcd,0,0,0,0,0,0,0,0,0,0
+Glucose,AL-2.lcd,0,0,0,0,0,0,0,0,0,0
+Glucose,AL-2-rep.lcd,0,0,0,0,0,0,0,0,0,0
+Glucose,AL-3.lcd,0,0,0,0,0,0,0,0,0,0
+Glucose,AL-3-rep.lcd,0,0,0,0,0,0,0,0,0,0
+Ferulic acid,AL-4.lcd,0,0,0,0.030,0,0,0,0,0.369,0
+Ferulic acid,AL-4-rep.lcd,0,0,0,0.028,0,0,0,0,0.358,0
+Ferulic acid,AL-5.lcd,0,0,0,0.027,0,0,0,0,0.344,0
+Ferulic acid,AL-5-rep.lcd,0,0,0,0.028,0,0,0,0,0.358,0
+Ferulic acid,AL-6.lcd,0,0,0,0.029,0,0,0,0,0.314,0
+Ferulic acid,AL-6-rep.lcd,0,0,0,0.029,0,0,0,0,0.337,0
+Vanillin,AL-7.lcd,0,0,0,0.018,0.412,0,0,0,0,0
+Vanillin,AL-7-rep.lcd,0,0,0,0.018,0.415,0,0,0,0,0
+Vanillin,AL-8.lcd,0,0,0,0.020,0.291,0,0,0,0,0
+Vanillin,AL-8-rep.lcd,0,0,0,0.019,0.280,0,0,0,0,0
+Vanillin,AL-9.lcd,0,0,0,0.018,0.308,0,0,0,0,0
+Vanillin,AL-9-rep.lcd,0,0,0,0.019,0.329,0,0,0,0,0
+Vanillic acid,AL-10.lcd,0.002,0,0,0.224,0,0,0,0,0,0
+Vanillic acid,AL-10-rep.lcd,0.002,0,0,0.228,0,0,0,0,0,0
+Vanillic acid,AL-11.lcd,0.003,0,0,0.266,0,0,0,0,0,0
+Vanillic acid,AL-11-rep.lcd,0.002,0,0,0.255,0,0,0,0,0,0
+Vanillic acid,AL-12.lcd,0.003,0,0,0.254,0,0,0,0,0,0
+Vanillic acid,AL-12-rep.lcd,0.004,0,0,0.255,0,0,0,0,0,0
+G-diketone,AL-13.lcd,0,0,0,0.021,0,0,0,0,0,0
+G-diketone,AL-13-rep.lcd,0,0,0,0.022,0,0,0,0,0,0
+G-diketone,AL-14.lcd,0,0,0,0.022,0,0,0,0,0,0
+G-diketone,AL-14-rep.lcd,0,0,0,0.020,0,0,0,0,0,0
+G-diketone,AL-15.lcd,0,0,0,0.019,0,0,0,0,0,0
+G-diketone,AL-15-rep.lcd,0,0,0,0.019,0,0,0,0,0,0
+Un-2,AL-16.lcd,0,0,0,0.026,0.003,0,0,0,0,0
+Un-2,AL-16-rep.lcd,0,0,0,0.025,0.003,0,0,0,0,0
+Un-2,AL-17.lcd,0,0,0,0.025,0.003,0,0,0,0,0
+Un-2,AL-17-rep.lcd,0,0,0,0.025,0.003,0,0,0,0,0
+Un-2,AL-18.lcd,0,0,0,0.032,0.003,0,0,0,0,0
+Un-2,AL-18-rep.lcd,0,0,0,0.034,0.003,0,0,0,0,0
+Protocatechuic acid,AL-19.lcd,0.286,0,0,0,0,0,0,0,0,0
+Protocatechuic acid,AL-19-rep.lcd,0.280,0,0,0,0,0,0,0,0,0
+Protocatechuic acid,AL-20.lcd,0.266,0,0,0,0,0,0,0,0,0
+Protocatechuic acid,AL-20-rep.lcd,0.259,0,0,0,0,0,0,0,0,0
+Protocatechuic acid,AL-21.lcd,0.241,0,0,0,0,0,0,0,0,0
+Protocatechuic acid,AL-21-rep.lcd,0.255,0,0,0,0,0,0,0,0,0
