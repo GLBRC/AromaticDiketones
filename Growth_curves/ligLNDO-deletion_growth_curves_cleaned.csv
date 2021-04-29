@@ -1,0 +1,31 @@
+Culture number,Strain,Carbon,Full name,10/7/19 15:25,10/8/19 9:50,10/8/19 13:05,10/8/19 16:00,10/9/19 9:30,10/9/19 15:00,10/10/19 10:00,10/11/19 8:30,10/13/19 18:00
+1,dligL,Glucose,1-dligL-Glucose,0,156,161,163,155,NA,NA,NA,NA
+2,dligL,Glucose,2-dligL-Glucose,0,176,182,187,185,NA,NA,NA,NA
+3,dligL,Glucose,3-dligL-Glucose,0,131,169,175,176,NA,NA,NA,NA
+4,dligL,G-diketone + glucose,4-dligL-G-diketone + glucose,9,21,22,23,29,30,34,40,39
+5,dligL,G-diketone + glucose,5-dligL-G-diketone + glucose,0,15,19,21,27,26,30,33,35
+6,dligL,G-diketone + glucose,6-dligL-G-diketone + glucose,0,17,19,19,22,27,39,33,34
+7,dligN,Glucose,7-dligN-Glucose,0,182,187,183,185,NA,NA,NA,NA
+8,dligN,Glucose,8-dligN-Glucose,0,190,194,195,187,NA,NA,NA,NA
+9,dligN,Glucose,9-dligN-Glucose,0,200,204,202,193,NA,NA,NA,NA
+10,dligN,G-diketone + glucose,10-dligN-G-diketone + glucose,0,10,11,14,20,20,41,30,46
+11,dligN,G-diketone + glucose,11-dligN-G-diketone + glucose,0,17,19,21,26,28,29,37,37
+12,dligN,G-diketone + glucose,12-dligN-G-diketone + glucose,0,17,14,19,20,22,32,31,36
+13,dligD,Glucose,13-dligD-Glucose,0,183,170,226,168,NA,NA,NA,NA
+14,dligD,Glucose,14-dligD-Glucose,0,158,166,167,162,NA,NA,NA,NA
+15,dligD,Glucose,15-dligD-Glucose,0,156,167,168,158,NA,NA,NA,NA
+16,dligD,G-diketone + glucose,16-dligD-G-diketone + glucose,0,10,11,12,19,23,28,29,32
+17,dligD,G-diketone + glucose,17-dligD-G-diketone + glucose,5,15,20,18,20,23,29,31,33
+18,dligD,G-diketone + glucose,18-dligD-G-diketone + glucose,2,8,20,22,24,22,28,34,33
+19,dligO,Glucose,19-dligO-Glucose,0,150,162,163,155,NA,NA,NA,NA
+20,dligO,Glucose,20-dligO-Glucose,0,153,160,164,160,NA,NA,NA,NA
+21,dligO,Glucose,21-dligO-Glucose,0,160,214,206,216,NA,NA,NA,NA
+22,dligO,G-diketone + glucose,22-dligO-G-diketone + glucose,0,10,13,13,19,23,24,29,28
+23,dligO,G-diketone + glucose,23-dligO-G-diketone + glucose,0,14,17,20,23,22,29,32,30
+24,dligO,G-diketone + glucose,24-dligO-G-diketone + glucose,0,8,14,16,21,20,26,27,31
+25,parent,Glucose,25-dsacB-Glucose,3,156,169,173,161,NA,NA,NA,NA
+26,parent,Glucose,26-dsacB-Glucose,0,161,166,170,163,NA,NA,NA,NA
+27,parent,Glucose,27-dsacB-Glucose,0,152,160,155,154,NA,NA,NA,NA
+28,parent,G-diketone + glucose,28-dsacB-G-diketone + glucose,0,10,19,21,NA,28,32,39,42
+29,parent,G-diketone + glucose,29-dsacB-G-diketone + glucose,0,16,28,28,22,26,28,37,31
+30,parent,G-diketone + glucose,30-dsacB-G-diketone + glucose,3,12,21,24,16,36,42,51,49
