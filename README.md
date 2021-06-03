@@ -1,6 +1,6 @@
 # Aromatic dimer dehydrogenases from Novosphingobium aromaticivorans reduce monoaromatic diketones
 
-Alexandra M. Linz, Yanjun Ma, Jose M. Perez, Kevin Myers, Wayne S. Kontur, Daniel R. Noguera, Timothy J. Donohue
+Alexandra M. Linz, Yanjun Ma, Jose M. Perez, Kevin S. Myers, Wayne S. Kontur, Daniel R. Noguera, Timothy J. Donohue
 
 DOE Great Lakes Bioenergy Research Center, Madison, WI, USA
 Wisconsin Energy Institute, University of Wisconsin-Madison, Madison, WI, USA
@@ -11,7 +11,7 @@ Direct correspondence to: Timothy J. Donohue, email: tdonohue@bact.wisc.edu, pho
 
 ## About this page
 
-In this study, we describe the ability of -Novosphingobium aromaticivorans-, a sphingomonad with a versatile aromatic metabolism, to process aromatic diketones, a potential substrate resulting from lignin depolymerization. We used RNA-Seq to generate a hypothesis about which genes encode the enzymes responsible for G-diketone degradation, then confirmed this hypothesis via -in vitro- enzyme assays.
+In this study, we describe the ability of Novosphingobium aromaticivorans, a sphingomonad with a versatile aromatic metabolism, to process aromatic diketones, a potential substrate resulting from lignin depolymerization. We used RNA-Seq to generate a hypothesis about which genes encode the enzymes responsible for G-diketone degradation, then confirmed this hypothesis via in vitro enzyme assays.
 
 Here, you can find data, scripts, and manuscript materials related to this study. If you have any questions, please do not hesitate to contact us.
 
@@ -24,11 +24,12 @@ Here, you can find data, scripts, and manuscript materials related to this study
 - Growth_curves (Growth of -N. aromaticivorans- on G-diketone
   - Diketone_growth_and_HPLC.csv (Detection of substrate and intermediates during growth)
   - ligLNDO-deletion_growth_curves_cleaned.csv (Growth of deletion mutants on glucose and G-diketone)
-- Manuscript (Materials submitted for publication)
+- Manuscript_2021-06-03 (Materials submitted for publication)
 - Plots (Intermediate plots generated for figures)
 - RNA-Seq
   - Code (Scripts used to process RNA-Seq data)
     - tidy_data.R (Import RNA-Seq data into R datasets)
+    - figure_list.R (Script for taking all these datasets and intermediate plots and generating manuscript figures) (Note there was some further processing in Adobe Illustrator in some cases)
   - Data (.csv or .xlsx to open in Excel, .rds to import into R)
     - AromaticDiketones_compiled_RPKM_data.xlsx (compiled RPKM, differential expression, and gene info. This is the file available through GEO.)
     - AromaticDiketones_GEO_submission.xlsx (metadata file for GEO submission)
@@ -38,7 +39,5 @@ Here, you can find data, scripts, and manuscript materials related to this study
     - RNA-Seq_HPLC_results (HPLC data of aromatics detected in supernatant of cultures harvested for RNA)
     - RPKM_normalized_read_counts (Read counts normalized by sample size
 
-- figure_list.R
-  - Script for taking all these datasets and generating manuscript figures
 - LICENSE
 - README
