@@ -14,6 +14,7 @@ gene_info <- readRDS("RNA-Seq/Data/Gene_information_Apr2019.rds")
 gene_names <- read_csv("RNA-Seq/Data/gene_names.csv")
 growth_data <- read_csv("Growth_curves/ligLNDO-deletion_growth_curves_cleaned.csv")
 enzyme_data <- read_csv("Enzyme_kinetics/ligLND_enzymes_2020-07-09.csv")
+enzyme_data2 <- read_csv("Enzyme_kinetics/GP-HPLC-Samplekey_2021-07-18.csv")
 GDK_tests <- read_csv("Growth_curves/Diketone_growth_and_HPLC.csv")
 fix_locus_tags <- readRDS("RNA-Seq/Data/gene_names2locus_tags.rds")
 
@@ -65,9 +66,10 @@ density <- ggplot(averaged_GDK[which(averaged_GDK$variable == "klett"), ], aes(x
 
 concentrations <- ggplot(data = averaged_GDK[which(averaged_GDK$variable == "G-diketone" | averaged_GDK$variable == "GP-1" | averaged_GDK$variable == "threo-GD"), ], aes(x = hours, y = value, color = variable)) + geom_pointrange(aes(ymin = value - error, ymax = value + error), size = 0.5, alpha = 0.5) + geom_line() + theme_bw() + labs(x = "Hours", y = "mmol/L") + theme(legend.title = element_blank(), legend.position = "bottom") 
 
-GDK_plots <- plot_grid(density, concentrations, nrow = 2, labels = c("A.", "B."), rel_heights = c(1, 1.2))
+GDK_plots <- plot_grid(density, concentrations, nrow = 2, labels = c("A", "B"), rel_heights = c(1, 1.2))
 
 save_plot("Plots/GDK_plots.pdf", GDK_plots, base_height = 5, base_aspect_ratio = 1)
+save_plot("Plots/GDK_plots.png", GDK_plots, base_height = 5, base_aspect_ratio = 1)
 
 ############
 # Figure S3
@@ -185,9 +187,47 @@ NADH_key[which(averaged_data2$Sample == "Control-NADH" | averaged_data2$Sample =
 averaged_data2$NADH <- NADH_key
 
 # Make the plot
-enzyme_curve <- ggplot(averaged_data2[which(averaged_data2$Enzyme != "No enzyme"), ], aes(x = Time, y = Diketone, color = Enzyme, shape = NADH)) + geom_pointrange(aes(ymin = Diketone - error, ymax = Diketone + error), size = 0.5, alpha = 0.5) + theme_bw() + labs(title = "", x = "Hours", y = "mmol/L diketone") + scale_color_manual(labels=c("LigD", "LigN", "LigL"), name = "Enzyme", values = c("dodgerblue", "orange", "darkgrey"))  + geom_line()
+enzyme_curve <- ggplot(averaged_data2[which(averaged_data2$Enzyme != "No enzyme"), ], aes(x = Time, y = Diketone, color = Enzyme, shape = NADH)) + geom_pointrange(aes(ymin = Diketone - error, ymax = Diketone + error), size = 0.5, alpha = 0.5) + theme_bw() + labs(title = "", x = "Hours", y = "mmol/L G-diketone") + scale_color_manual(labels=c("LigD", "LigN", "LigL"), name = "Enzyme", values = c("dodgerblue", "orange", "darkgrey"))  + geom_line() + theme(legend.position = "none")
 
-save_plot("Plots/enzyme_curve.pdf", enzyme_curve, base_height = 3, base_aspect_ratio = 1.5)
+# Do the 2nd GP panel
+averaged_data3 <- aggregate(`GP (mM)` ~ `Sample Name` + Hours,  data = enzyme_data2, mean)
+sd_data3 <- aggregate(`GP (mM)` ~ `Sample Name` + Hours,  data = enzyme_data2, sd)
+averaged_data3$error <- sd_data3$`GP (mM)`
+
+# Rename conditions
+enzyme_key <- c()
+enzyme_key[which(enzyme_data2$`Sample Name` == "No enzyme+NADH" | enzyme_data2$`Sample Name` == "Control-NADH")] <- "No enzyme"
+enzyme_key[which(enzyme_data2$`Sample Name` == "LigD-NADH" | enzyme_data2$`Sample Name` == "LigD+NADH")] <- "LigD"
+enzyme_key[which(enzyme_data2$`Sample Name` == "LigN-NADH" | enzyme_data2$`Sample Name` == "LigN+NADH")] <- "LigN"
+enzyme_key[which(enzyme_data2$`Sample Name` == "LigL-NADH" | enzyme_data2$`Sample Name` == "LigL+NADH")] <- "LigL"
+enzyme_data2$Enzyme <- enzyme_key
+
+enzyme_key <- c()
+enzyme_key[which(averaged_data3$`Sample Name` == "No enzyme+NADH" | averaged_data3$`Sample Name` == "Control-NADH")] <- "No enzyme"
+enzyme_key[which(averaged_data3$`Sample Name` == "LigD-NADH" | averaged_data3$`Sample Name` == "LigD+NADH")] <- "LigD"
+enzyme_key[which(averaged_data3$`Sample Name` == "LigN-NADH" | averaged_data3$`Sample Name` == "LigN+NADH")] <- "LigN"
+enzyme_key[which(averaged_data3$`Sample Name` == "LigL-NADH" | averaged_data3$`Sample Name` == "LigL+NADH")] <- "LigL"
+averaged_data3$Enzyme <- enzyme_key
+
+NADH_key <- c()
+NADH_key[which(averaged_data3$`Sample Name` == "No enzyme+NADH" | averaged_data3$`Sample Name` == "LigD-NADH" | averaged_data3$`Sample Name` == "LigN-NADH" | averaged_data3$`Sample Name` == "LigL-NADH")] <- "-"
+NADH_key[which(averaged_data3$`Sample Name` == "No enzyme-NADH" | averaged_data3$`Sample Name` == "LigD+NADH" | averaged_data3$`Sample Name` == "LigN+NADH" | averaged_data3$`Sample Name` == "LigL+NADH")] <- "+"
+averaged_data3$NADH <- NADH_key
+
+averaged_data3$error[which(is.na(averaged_data3$error) == T)] <- 0
+
+# Make the plot
+enzyme_curve2 <- ggplot(averaged_data3[which(averaged_data3$Enzyme != "No enzyme"), ], aes(x = Hours, y = `GP (mM)`, color = Enzyme, shape = NADH)) + geom_pointrange(aes(ymin = `GP (mM)` - error, ymax = `GP (mM)` + error), size = 0.5, alpha = 0.5) + theme_bw() + labs(title = "", x = "Hours", y = "mmol/L GP-1") + scale_color_manual( name = "Enzyme", values = c("dodgerblue", "darkgrey", "orange"))  + geom_line()
+
+legend <- get_legend(enzyme_curve2)
+
+enzyme_curve2 <- ggplot(averaged_data3[which(averaged_data3$Enzyme != "No enzyme"), ], aes(x = Hours, y = `GP (mM)`, color = Enzyme, shape = NADH)) + geom_pointrange(aes(ymin = `GP (mM)` - error, ymax = `GP (mM)` + error), size = 0.5, alpha = 0.5) + theme_bw() + labs(title = "", x = "Hours", y = "mmol/L GP-1") + scale_color_manual( name = "Enzyme", values = c("dodgerblue", "darkgrey", "orange"))  + geom_line() + theme(legend.position = "none")
+
+
+all_enzyme_curves <- plot_grid(enzyme_curve, enzyme_curve2, legend, rel_widths = c(1, 1, 0.25), nrow = 1, labels = c("A", "B", ""))
+
+save_plot("Plots/enzyme_curve2.pdf", all_enzyme_curves, base_height = 3, base_aspect_ratio = 2.5)
+save_plot("Plots/enzyme_curve2.png", all_enzyme_curves, base_height = 3, base_aspect_ratio = 2.5)
 
 ###########
 # Figure S5 - deletion mutant growth data
@@ -206,13 +246,13 @@ averaged_data <- aggregate(value ~ Strain + Hours + Substrate,  data = long_data
 sd_data <- aggregate(value ~ Strain + Hours + Substrate,  data = long_data, sd)
 averaged_data$error <- sd_data$value
 
-# Plot growth on diketone + glucosee
+# Plot growth on diketone + glucose
 
-growth_curve <- ggplot(averaged_data[which(averaged_data$Substrate == "G-diketone + glucose"), ], aes(x = Hours, y = value, color = Strain)) + geom_pointrange(aes(ymin = value - error, ymax = value + error), size = 0.5, alpha = 0.5) + theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_blank(), axis.line = element_line(colour = "black")) + labs(x = "Hours", y = "Klett units") + scale_color_brewer(palette = "Paired") + labs(title = "1 mmol/L G-diketone + 1mmol/L glucose") + geom_line(aes(linetype = Strain))
+growth_curve <- ggplot(averaged_data[which(averaged_data$Substrate == "G-diketone + glucose"), ], aes(x = Hours, y = value, color = Strain)) + geom_pointrange(aes(ymin = value - error, ymax = value + error), size = 0.5, alpha = 0.5) + theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_blank(), axis.line = element_line(colour = "black")) + labs(x = "Hours", y = "Klett units") + scale_color_brewer(palette = "Paired") + labs(title = "1 mmol/L G-diketone + 1mmol/L glucose") + geom_line(aes(linetype = Strain)) + ylim(0, 225) + xlim(0, 150)
 
 # Plot growth on glucose
 
-growth_curve2 <- ggplot(averaged_data[which(averaged_data$Substrate == "Glucose"), ], aes(x = Hours, y = value, color = Strain)) + geom_pointrange(aes(ymin = value - error, ymax = value + error), size = 0.5, alpha = 0.5) + labs(x = "Hours", y = "Klett units") + scale_color_brewer(palette = "Paired") + labs(title = "2 mmol/L glucose") + theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_blank(), axis.line = element_line(colour = "black"), legend.position = "none")  + geom_line(aes(linetype = Strain))
+growth_curve2 <- ggplot(averaged_data[which(averaged_data$Substrate == "Glucose"), ], aes(x = Hours, y = value, color = Strain)) + geom_pointrange(aes(ymin = value - error, ymax = value + error), size = 0.5, alpha = 0.5) + labs(x = "Hours", y = "Klett units") + scale_color_brewer(palette = "Paired") + labs(title = "2 mmol/L glucose") + theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_blank(), axis.line = element_line(colour = "black"), legend.position = "none")  + geom_line(aes(linetype = Strain)) + xlim(0, 150) + ylim(0, 225)
 
 combined_growth_curve <- plot_grid(growth_curve2, growth_curve, nrow = 1, labels = c("A.", "B."), rel_widths = c(1, 1.2))
 
