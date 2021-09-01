@@ -20,11 +20,14 @@ Here, you can find data, scripts, and manuscript materials related to this study
 - Enzyme_kinetics (Data and calculations for Michaelis-Menten kinetics)
   - compiled_kinetics_2021-01-12.xlsx (Measured slopes of enzyme oxidation/reduction and results)
   - ligLND_enzymes_2020-07-09.csv (HPLC measurements of diketone degradation)
+  - GP-HPLC-samplekey_2021-07-18.csv (HPLC measurements of GP-1 degradation)
+  - plot_kinetics_curves.R (Script for generating Figure S5)
   - mm-kinetics_curve_fitting.R (Script for fitting Michaelis-Menten co-efficients based on slopes)
 - Growth_curves (Growth of -N. aromaticivorans- on G-diketone
   - Diketone_growth_and_HPLC.csv (Detection of substrate and intermediates during growth)
   - ligLNDO-deletion_growth_curves_cleaned.csv (Growth of deletion mutants on glucose and G-diketone)
-- Manuscript_2021-06-03 (Materials submitted for publication)
+- Manuscript_2021-06-03.zip (Materials initially submitted for publication)
+- Manuscript_revised (Materials for resubmission after initial review)
 - Plots (Intermediate plots generated for figures)
 - RNA-Seq
   - Code (Scripts used to process RNA-Seq data)
